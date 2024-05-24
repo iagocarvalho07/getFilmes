@@ -1,5 +1,6 @@
 import 'package:app_filmes/application/modules/favoritos/favoritos_page.dart';
 import 'package:app_filmes/application/modules/home/home_controller.dart';
+import 'package:app_filmes/application/modules/movies/moives_bindings.dart';
 import 'package:app_filmes/application/modules/movies/movies_pages.dart';
 import 'package:app_filmes/application/ui/theme_extensions.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class HomePage extends StatelessWidget {
             return GetPageRoute(
               settings: settings,
               page: () => const MoviesPages(),
+              binding: MoivesBindings(),
             );
           }
           if (settings.name == '/favorites') {
