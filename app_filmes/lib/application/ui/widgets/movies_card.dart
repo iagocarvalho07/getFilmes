@@ -1,7 +1,9 @@
+import 'package:app_filmes/models/movies_model.dart';
 import 'package:flutter/material.dart';
 
 class MoviesCard extends StatelessWidget {
-  const MoviesCard({Key? key}) : super(key: key);
+  final MoviesModel movie;
+  const MoviesCard({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class MoviesCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   clipBehavior: Clip.antiAlias,
                   child: Image.network(
-                    "https://cinemacomrapadura.com.br/imagens/2018/06/20180609-ant-man-and-the-wasp-408x615.jpeg",
+                    "https://image.tmdb.org/t/p/w500${movie.posterPath}",
                     width: 148,
                     height: 184,
                     fit: BoxFit.cover,
@@ -29,14 +31,14 @@ class MoviesCard extends StatelessWidget {
                 ),
               ),
               Text(
-                "Home Formiga",
+                movie.title,
                 style:
                     const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
               Text(
-                "2020",
+                movie.releaseDate,
                 style:
                     const TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
                 overflow: TextOverflow.ellipsis,

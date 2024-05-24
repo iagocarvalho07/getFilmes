@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:app_filmes/services/login_service.dart';
+import 'package:app_filmes/services/login/login_service.dart';
 
 class HomeController extends GetxController {
   // ignore: constant_identifier_names

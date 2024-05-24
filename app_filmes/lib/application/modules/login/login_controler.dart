@@ -1,5 +1,5 @@
 import 'package:app_filmes/application/ui/menssages/menssagens_mixin.dart';
-import 'package:app_filmes/services/login_service.dart';
+import 'package:app_filmes/services/login/login_service.dart';
 import 'package:get/get.dart';
 import '../../ui/loder_mixin.dart';
 

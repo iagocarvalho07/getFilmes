@@ -12,6 +12,7 @@ class MoivesBindings extends Bindings {
         () => GenresRepositorieImpl(restClient: Get.find()));
     Get.lazyPut<GenresService>(
         () => GenresServiceImpl(genresRepositories: Get.find()));
-    Get.lazyPut(() => MoviesControler(genresService: Get.find()));
+    Get.lazyPut(() =>
+        MoviesControler(genresService: Get.find(), moviesService: Get.find()));
   }
 }

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../repositories/login/login_repositorie.dart';
+import '../../repositories/login/login_repositorie.dart';
 import 'login_service.dart';
 
 class LoginServiceImpl implements LoginService {
