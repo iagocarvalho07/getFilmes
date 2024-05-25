@@ -13,14 +13,26 @@ import 'package:get/get.dart';
 class AplicationBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => RestClient(), fenix: true);
-    Get.lazyPut<LoginRepositorie>(() => LoginRepositorieImpl(), fenix: true);
+    Get.lazyPut(
+      () => RestClient(),
+      fenix: true,
+    );
+    Get.lazyPut<LoginRepositorie>(
+      () => LoginRepositorieImpl(),
+      fenix: true,
+    );
     Get.lazyPut<LoginService>(
-        () => LoginServiceImpl(loginRepositorie: Get.find()),
-        fenix: true);
+      () => LoginServiceImpl(loginRepositorie: Get.find()),
+      fenix: true,
+    );
     Get.put(AuthService()).init();
-    Get.lazyPut<MoviesRepositorie>(() => MoviesRepositorieImpl(restClient: Get.find()), fenix: true);
+    Get.lazyPut<MoviesRepositorie>(
+      () => MoviesRepositorieImpl(restClient: Get.find()),
+      fenix: true,
+    );
     Get.lazyPut<MoviesService>(
-        () => MoviesServiceImpl(moviesRepositorie: Get.find()), fenix: true);
+      () => MoviesServiceImpl(moviesRepositorie: Get.find()),
+      fenix: true,
+    );
   }
 }

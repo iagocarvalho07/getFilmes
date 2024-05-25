@@ -1,6 +1,7 @@
 import 'package:app_filmes/application/bindings/aplication_bindings.dart';
 import 'package:app_filmes/application/modules/home/home_module.dart';
 import 'package:app_filmes/application/modules/login/login_molude.dart';
+import 'package:app_filmes/application/modules/movie_details/movies_details_module.dart';
 import 'package:app_filmes/application/modules/splash/splash_module.dart';
 import 'package:app_filmes/application/ui/uiconfig/filmes_ui_config.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         ...SplashModule().routers,
         ...LoginMolude().routers,
         ...HomeModule().routers,
+        ...MoviesDetailsModule().routers,
       ],
     );
   }
