@@ -42,4 +42,22 @@ class MoviesModel {
   String toJson() => json.encode(toMap());
 
   factory MoviesModel.fromJson(String source) => MoviesModel.fromMap(json.decode(source));
+
+  MoviesModel copyWith({
+    int? id,
+    String? title,
+    String? releaseDate,
+    String? posterPath,
+    List<int>? genres,
+    bool? favorite,
+  }) {
+    return MoviesModel(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      releaseDate: releaseDate ?? this.releaseDate,
+      posterPath: posterPath ?? this.posterPath,
+      genres: genres ?? this.genres,
+      favorite: favorite ?? this.favorite,
+    );
+  }
 }

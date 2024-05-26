@@ -1,34 +1,35 @@
-import 'package:app_filmes/application/modules/movie_details/movies_tetails_controller.dart';
 import 'package:app_filmes/models/movies_details_model.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:transparent_image/transparent_image.dart';
 
-class MoviesDetailsHedaer extends GetView<MoviesTetailsController> {
-  final MoviesDetailsModel? movies;
+class MovieDetailHeader extends StatelessWidget {
+  final MoviesDetailsModel? movie;
 
-  const MoviesDetailsHedaer({
-    Key? key,
-    required this.movies,
-  }) : super(key: key);
+  const MovieDetailHeader({this.movie, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (movies != null) {
+    var movieData = movie;
+    if (movieData != null) {
       return SizedBox(
         height: 278,
         child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: movies!.urlImages.length,
-            itemBuilder: (context, index) {
-              final image = movies!.urlImages[index];
-              return Padding(
-                padding: EdgeInsets.all(2),
-                child: Image.network(image),
-              );
-            }),
+          scrollDirection: Axis.horizontal,
+          itemCount: movieData.urlImages.length,
+          itemBuilder: (context, index) {
+            final image = movieData.urlImages[index];
+            return Padding(
+                padding: const EdgeInsets.all(2),
+                child: FadeInImage.memoryNetwork(
+                  placeholder: kTransparentImage,
+                  image: image,
+                  fit: BoxFit.cover,
+                ));
+          },
+        ),
       );
     } else {
-      return SizedBox.shrink();
+      return const SizedBox.shrink();
     }
   }
 }

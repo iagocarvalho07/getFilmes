@@ -4,7 +4,10 @@ import 'package:get/get.dart';
 
 class MoviesCard extends StatelessWidget {
   final MoviesModel movie;
-  const MoviesCard({Key? key, required this.movie}) : super(key: key);
+  final VoidCallback favoiteCallBack;
+  const MoviesCard(
+      {Key? key, required this.movie, required this.favoiteCallBack})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class MoviesCard extends StatelessWidget {
         Get.toNamed("/movies/details", arguments: movie.id);
       },
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const  EdgeInsets.all(8),
         width: 158,
         height: 280,
         child: Stack(
@@ -56,16 +59,16 @@ class MoviesCard extends StatelessWidget {
               right: -3,
               child: Material(
                 elevation: 5,
-                shape: CircleBorder(),
+                shape:  const CircleBorder(),
                 clipBehavior: Clip.antiAlias,
                 child: SizedBox(
                   height: 30,
                   child: IconButton(
                     iconSize: 15,
-                    onPressed: () {},
+                    onPressed: favoiteCallBack,
                     icon: Icon(
                       Icons.favorite,
-                      color: Colors.red,
+                      color: movie.favorite ? Colors.red : Colors.grey,
                     ),
                   ),
                 ),

@@ -3,42 +3,65 @@ import 'package:app_filmes/models/movies_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MoviesDetailsContentMainCast extends StatelessWidget {
+class MovieDetailContentMainCast extends StatelessWidget {
   final MoviesDetailsModel? movie;
-  final showPainal = false.obs;
+  final showPanil = false.obs;
 
-  MoviesDetailsContentMainCast({Key? key, required this.movie})
-      : super(key: key);
+  MovieDetailContentMainCast({Key? key, required this.movie}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Divider(color: Colors.grey),
-        ExpansionPanelList(
-          children: [
-            ExpansionPanel(
+        const Divider(
+          color: Colors.grey,
+        ),
+        Obx(() {
+          return ExpansionPanelList(
+            elevation: 0,
+            expandedHeaderPadding: EdgeInsets.zero,
+            expansionCallback: (panelIndex, isExpanded) {
+              showPanil.toggle();
+            },
+            children: [
+              ExpansionPanel(
                 canTapOnHeader: false,
-                isExpanded: true,
+                isExpanded: showPanil.value,
                 backgroundColor: Colors.white,
-                headerBuilder: (context, isExpanded) {
-                  return const Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Elenco",
-                      style: TextStyle(fontSize: 16),
+                headerBuilder: ((context, isExpanded) {
+                  return const Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Elenco',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
                     ),
                   );
-                },
-                body: Row(
-                  children: [
-                    MovieCast(
-                      cast: movie!.cast[0],
-                    ),
-                  ],
-                ))
-          ],
-        )
+                }),
+                body: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: movie?.cast
+                            .map(
+                              (cast) => MovieCast(
+                                cast: cast,
+                              ),
+                            )
+                            .toList() ??
+                        const [],
+                  ),
+                ),
+              ),
+            ],
+          );
+        }
+        ),
+        const SizedBox(height: 16),
       ],
     );
   }

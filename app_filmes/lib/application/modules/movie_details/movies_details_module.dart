@@ -8,7 +8,7 @@ class MoviesDetailsModule extends Module {
   List<GetPage> routers = [
     GetPage(
       name: "/movies/details",
-      page: () => MoviesTetailsPage(),
+      page: () => MovieDetailPage(),
       binding: MoviesTetailsBindings(),
     )
   ];

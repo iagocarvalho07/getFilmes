@@ -14,7 +14,7 @@ class MoviesDetailsContente extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MoviesDetailsContenteTitle(movie: movie),
+          MovieDetailContentTitle(movie: movie),
         ],
       );
     } else {

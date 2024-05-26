@@ -1,3 +1,4 @@
+import 'package:app_filmes/application/modules/favoritos/favoritos_bindings.dart';
 import 'package:app_filmes/application/modules/favoritos/favoritos_page.dart';
 import 'package:app_filmes/application/modules/home/home_controller.dart';
 import 'package:app_filmes/application/modules/movies/moives_bindings.dart';
@@ -41,9 +42,9 @@ class HomePage extends StatelessWidget {
           }
           if (settings.name == '/favorites') {
             return GetPageRoute(
-              settings: settings,
-              page: () => const FavoritosPage(),
-            );
+                settings: settings,
+                page: () => const FavoritosPage(),
+                binding: FavoritossBindings());
           }
           return null;
         },

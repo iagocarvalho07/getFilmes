@@ -21,4 +21,12 @@ class MoviesServiceImpl implements MoviesService {
   @override
   Future<MoviesDetailsModel?> getMoviesDetails(int id) =>
       _moviesRepositorie.getMoviesDetails(id);
+
+  @override
+  Future<void> addOrRemoveFavorite(String userId, MoviesModel moviesModel) =>
+      _moviesRepositorie.addOrRemoveFavorite(userId, moviesModel);
+
+  @override
+  Future<List<MoviesModel>> getFavoritiesMovies(String userId) =>
+      _moviesRepositorie.getFavoritiesMovies(userId);
 }
