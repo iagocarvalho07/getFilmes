@@ -2,9 +2,11 @@
     <img src="assets\images\logo.png" width="100" alt="Logo App Filmes"/>
 </p>
 
+
 <h1 align="center">App Filmes</h1>
 
----
+---![getFilme](https://github.com/user-attachments/assets/50566c68-fa94-435f-8737-965fcacd0b61)
+
 
 <h2>Tópicos 📋</h2>
 
